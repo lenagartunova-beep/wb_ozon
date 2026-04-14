@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звен-Электро — Электромонтаж в Звенигороде без переплат и переделок</title>
+    <meta name="description" content="Профессиональный электромонтаж в Звенигороде и области. Фиксированная цена в договоре, страхование до 5 млн ₽, гарантия до 3 лет.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb',
+                            700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a'
+                        },
+                        accent: { 500: '#f59e0b', 600: '#d97706' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .text-gradient { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .pulse-btn { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+        }
+        .sticky-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: all 0.3s ease; }
+        .sticky-header.scrolled { background: rgba(255,255,255,0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-white">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Звен-Электро",
+        "alternateName": "ООО Электромонтажник",
+        "description": "Профессиональный электромонтаж в Звенигороде и области. Фиксированная цена, страхование до 5 млн ₽.",
+        "url": "https://zven-electro.ru",
+        "telephone": "+79167547466",
+        "email": "info@zven-electro.ru",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Звенигород",
+            "addressRegion": "Московская область",
+            "addressCountry": "RU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "55.731667",
+            "longitude": "36.861944"
+        },
+        "priceRange": "$$",
+        "openingHours": "Mo-Su 09:00-21:00",
+        "image": "https://zven-electro.ru/logo.png"
+    }
+    </script>
+
+    <header id="header" class="sticky-header bg-white/95 backdrop-blur-sm border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg lg:text-xl font-bold text-gray-900">Звен-Электро</div>
+                        <div class="text-xs text-gray-500 hidden sm:block">г. Звенигород</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+79167547466" class="hidden md:flex items-center space-x-2 text-gray-700 hover:text-brand-600 transition">
+                        <i class="fas fa-phone text-brand-600"></i>
+                        <span class="font-semibold">8 916 754 74 66</span>
+                    </a>
+                    <button onclick="openModal()" class="hidden sm:block bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-lg font-medium transition pulse-btn">Получить расчёт</button>
+                    <button onclick="openModal()" class="sm:hidden w-10 h-10 bg-brand-600 text-white rounded-lg flex items-center justify-center">
+                        <i class="fas fa-calculator"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="h-16 lg:h-20"></div>
+
+    <section class="gradient-bg text-white py-16 lg:py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                    Без переплат и переделок —<br>
+                    <span class="text-accent-500">электрика, которую не придётся исправлять</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-blue-100 mb-4">Фиксируем стоимость до начала работ. Если что-то упустили — это наша ответственность.</p>
+                <div class="flex items-center space-x-2 text-yellow-300 mb-8">
+                    <i class="fas fa-shield-alt text-2xl"></i>
+                    <span class="font-semibold">Гражданская ответственность застрахована на 5 000 000 ₽</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openModal()" class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition pulse-btn">Получить точный расчёт</button>
+                </div>
+                <p class="mt-4 text-blue-200">или позвоните: <a href="tel:+79167547466" class="underline hover:text-white">8 916 754 74 66</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
+                <div class="bg-brand-50 rounded-xl p-5 text-center card-hover"><i class="fas fa-file-contract text-brand-600 text-3xl mb-3"></i><p class="font-medium text-gray-800">Цена фиксируется в договоре</p></div>
+                <div class="bg-brand-50 rounded-xl p-5 text-center card-hover"><i class="fas fa-lock text-brand-600 text-3xl mb-3"></i><p class="font-medium text-gray-800">Смета не увеличивается</p></div>
+                <div class="bg-brand-50 rounded-xl p-5 text-center card-hover"><i class="fas fa-eye text-brand-600 text-3xl mb-3"></i><p class="font-medium text-gray-800">Без скрытых работ</p></div>
+                <div class="bg-brand-50 rounded-xl p-5 text-center card-hover"><i class="fas fa-shield-alt text-brand-600 text-3xl mb-3"></i><p class="font-medium text-gray-800">Ответственность застрахована на 5 млн ₽</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-900">Узнаёте ситуацию?</h2>
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg space-y-4 text-gray-700 text-lg">
+                <p>Сначала мастер называет одну сумму — а после выезда она <strong>"почему-то" вырастает в полтора раза</strong>. В процессе появляются «непредвиденные работы» и доплаты.</p>
+                <p>А потом, уже после ремонта, выясняется — где-то сэкономили или сделали «на авось». И приходится <strong>вскрывать стены, портить свежую отделку</strong>.</p>
+                <p>На вопрос «почему так?» слышите знакомое: <span class="text-red-600 font-medium">«Ну… так получилось, по-другому никак»</span>.</p>
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg mt-6"><p class="text-red-800 font-medium m-0">Если вы хотя бы раз через это проходили — вы знаете, насколько дорого обходится такая «экономия».</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-900">Проблема не в мастерах — <span class="text-brand-600">проблема в подходе</span></h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="flex items-start space-x-4 bg-red-50 rounded-xl p-5"><div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-600"></i></div><div><h3 class="font-semibold text-gray-900 mb-1">Не считают нагрузку заранее</h3><p class="text-gray-600 text-sm">Ставят «на глаз», потом выбивает автоматы</p></div></div>
+                <div class="flex items-start space-x-4 bg-red-50 rounded-xl p-5"><div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-600"></i></div><div><h3 class="font-semibold text-gray-900 mb-1">Нет детальной сметы</h3><p class="text-gray-600 text-sm">Только «примерно за точку», откуда берутся доплаты</p></div></div>
+                <div class="flex items-start space-x-4 bg-red-50 rounded-xl p-5"><div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-600"></i></div><div><h3 class="font-semibold text-gray-900 mb-1">Отсутствует пошаговый контроль</h3><p class="text-gray-600 text-sm">Ошибки замуровываются в стенах</p></div></div>
+                <div class="flex items-start space-x-4 bg-red-50 rounded-xl p-5"><div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-times text-red-600"></i></div><div><h3 class="font-semibold text-gray-900 mb-1">Экономят на проектировании</h3><p class="text-gray-600 text-sm">Делают «как обычно», не думая о последствиях</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-br from-brand-50 to-blue-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-900">Наш подход: <span class="text-brand-600">предсказуемый результат</span></h2>
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden grid md:grid-cols-2">
+                <div class="p-6 bg-red-50">
+                    <h3 class="font-bold text-red-700 mb-4 flex items-center"><i class="fas fa-times-circle mr-2"></i> Как у многих</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-times text-red-500 mr-2"></i> Цена «примерно»</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i> Доплаты в процессе</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i> «Сделаем как скажете»</li>
+                        <li><i class="fas fa-times text-red-500 mr-2"></i> Риски на вас</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-green-50">
+                    <h3 class="font-bold text-green-700 mb-4 flex items-center"><i class="fas fa-check-circle mr-2"></i> Как у нас</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Точная смета в договоре</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Цена не меняется (риски берём на себя)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Проектируем нагрузку с запасом</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Ответственность застрахована на 5 млн ₽</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12 text-gray-900">Что это даёт <span class="text-brand-600">вам</span></h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-brand-50 to-white rounded-xl p-6 border border-brand-100 card-hover"><div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-calculator text-brand-600 text-xl"></i></div><h3 class="font-semibold text-gray-900 mb-2">Вы заранее знаете итоговую стоимость</h3><p class="text-gray-600 text-sm">Без сюрпризов в процессе работы</p></div>
+                <div class="bg-gradient-to-br from-brand-50 to-white rounded-xl p-6 border border-brand-100 card-hover"><div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-tools text-brand-600 text-xl"></i></div><h3 class="font-semibold text-gray-900 mb-2">Не придётся переделывать</h3><p class="text-gray-600 text-sm">Схема просчитана, запас по мощности заложен</p></div>
+                <div class="bg-gradient-to-br from-brand-50 to-white rounded-xl p-6 border border-brand-100 card-hover"><div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-home text-brand-600 text-xl"></i></div><h3 class="font-semibold text-gray-900 mb-2">Ваш ремонт остаётся целым</h3><p class="text-gray-600 text-sm">Не нужно вскрывать стены после отделки</p></div>
+                <div class="bg-gradient-to-br from-brand-50 to-white rounded-xl p-6 border border-brand-100 card-hover"><div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-user-check text-brand-600 text-xl"></i></div><h3 class="font-semibold text-gray-900 mb-2">Вам не нужно контролировать процесс</h3><p class="text-gray-600 text-sm">Мы сами следим за качеством каждого этапа</p></div>
+                <div class="bg-gradient-to-br from-brand-50 to-white rounded-xl p-6 border border-brand-100 card-hover sm:col-span-2"><div class="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4"><i class="fas fa-chart-line text-brand-600 text-xl"></i></div><h3 class="font-semibold text-gray-900 mb-2">Предсказуемый результат</h3><p class="text-gray-600 text-sm">Электрика работает стабильно годами без сбоев и перегрузок</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-900">Нам доверяют <span class="text-brand-600">сложные объекты</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+                <div class="bg-white rounded-xl p-5 text-center shadow-sm"><div class="text-3xl font-bold text-brand-600">600+</div><div class="text-sm text-gray-600 mt-1">объектов в Звенигороде и области</div></div>
+                <div class="bg-white rounded-xl p-5 text-center shadow-sm"><div class="text-3xl font-bold text-brand-600">20+</div><div class="text-sm text-gray-600 mt-1">лет суммарного опыта</div></div>
+                <div class="bg-white rounded-xl p-5 text-center shadow-sm"><div class="text-3xl font-bold text-brand-600">5 млн ₽</div><div class="text-sm text-gray-600 mt-1">страховое покрытие</div></div>
+                <div class="bg-white rounded-xl p-5 text-center shadow-sm"><div class="text-3xl font-bold text-brand-600">3 года</div><div class="text-sm text-gray-600 mt-1">гарантия на работы</div></div>
+                <div class="bg-white rounded-xl p-5 text-center shadow-sm"><div class="text-3xl font-bold text-brand-600">100%</div><div class="text-sm text-gray-600 mt-1">фиксированная цена</div></div>
+            </div>
+            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 sm:p-8 mb-10 border border-yellow-200">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center shrink-0"><i class="fas fa-shield-alt text-yellow-600 text-xl"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Не только обещаем — несём финансовую ответственность</h3>
+                        <p class="text-gray-700">Если что-то пойдёт не так, у вас есть не просто слова мастера, а официальное страховое покрытие до 5 000 000 ₽ и гарантия на выполненные работы.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl shadow-sm p-6"><h3 class="font-bold text-lg mb-2">Квартиры и дома</h3><p class="text-gray-600">Новая разводка, щиты, освещение, тёплые полы и модернизация под современную нагрузку.</p></div>
+                <div class="bg-white rounded-2xl shadow-sm p-6"><h3 class="font-bold text-lg mb-2">Коммерческие объекты</h3><p class="text-gray-600">Офисы, магазины, кафе и помещения с требованиями к надёжности и безопасности.</p></div>
+                <div class="bg-white rounded-2xl shadow-sm p-6"><h3 class="font-bold text-lg mb-2">Сложные кейсы</h3><p class="text-gray-600">Переделка чужих ошибок, усиление вводов, балансировка нагрузки и устранение рисков.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Как проходит работа</h2>
+                <p class="text-gray-600">Понятный процесс без сюрпризов — от заявки до запуска.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center"><div class="w-14 h-14 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div><h3 class="font-semibold mb-2">Выезд и замер</h3><p class="text-sm text-gray-600">Уточняем задачи, нагрузки и особенности объекта.</p></div>
+                <div class="text-center"><div class="w-14 h-14 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div><h3 class="font-semibold mb-2">Смета и договор</h3><p class="text-sm text-gray-600">Фиксируем объём работ, материалы, сроки и стоимость.</p></div>
+                <div class="text-center"><div class="w-14 h-14 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div><h3 class="font-semibold mb-2">Монтаж и контроль</h3><p class="text-sm text-gray-600">Работаем по этапам и проверяем качество на каждом шаге.</p></div>
+                <div class="text-center"><div class="w-14 h-14 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div><h3 class="font-semibold mb-2">Сдача и гарантия</h3><p class="text-sm text-gray-600">Показываем результат, передаём документы и остаёмся на связи.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-brand-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4">Получите расчёт до начала работ</h2>
+            <p class="text-blue-100 mb-8">Оставьте телефон — уточним задачу, подскажем по срокам и подготовим понятную смету без скрытых доплат.</p>
+            <form class="max-w-xl mx-auto bg-white rounded-2xl p-4 sm:p-6 shadow-2xl" onsubmit="handleFormSubmit(event)">
+                <div class="grid sm:grid-cols-[1fr_auto] gap-3">
+                    <input type="tel" id="ctaPhone" placeholder="+7 (___) ___-__-__" required class="w-full px-4 py-4 rounded-xl border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    <button type="submit" class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-4 rounded-xl font-semibold transition">Получить расчёт</button>
+                </div>
+                <p class="text-xs text-gray-500 mt-3 text-left">Отправляя форму, вы соглашаетесь с <a class="underline" href="privacy-policy.html">политикой конфиденциальности</a>.</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-900">Частые вопросы</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <button class="w-full flex items-center justify-between text-left p-5 font-semibold" onclick="toggleFaq(this)">Почему цена не меняется в процессе?<i class="fas fa-chevron-down transition-transform"></i></button>
+                    <div class="hidden px-5 pb-5 text-gray-600">Потому что перед стартом мы уточняем объём работ, считаем нагрузки и фиксируем смету в договоре.</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <button class="w-full flex items-center justify-between text-left p-5 font-semibold" onclick="toggleFaq(this)">Что входит в гарантию?<i class="fas fa-chevron-down transition-transform"></i></button>
+                    <div class="hidden px-5 pb-5 text-gray-600">Гарантия распространяется на выполненный монтаж. Если выявится ошибка по нашей вине — устраним её за свой счёт.</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <button class="w-full flex items-center justify-between text-left p-5 font-semibold" onclick="toggleFaq(this)">Работаете только в Звенигороде?<i class="fas fa-chevron-down transition-transform"></i></button>
+                    <div class="hidden px-5 pb-5 text-gray-600">Основной фокус — Звенигород и ближайшие районы Московской области, но выезды по области тоже возможны.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+            <div>
+                <div class="text-white text-xl font-bold mb-2">Звен-Электро</div>
+                <p class="text-sm">Электромонтаж в Звенигороде и области без переплат, переделок и скрытых работ.</p>
+            </div>
+            <div>
+                <div class="text-white font-semibold mb-2">Контакты</div>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="tel:+79167547466" class="hover:text-white">8 916 754 74 66</a></li>
+                    <li><a href="mailto:info@zven-electro.ru" class="hover:text-white">info@zven-electro.ru</a></li>
+                    <li>Звенигород, Московская область</li>
+                </ul>
+            </div>
+            <div>
+                <div class="text-white font-semibold mb-2">Документы</div>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="privacy-policy.html" class="hover:text-white">Политика конфиденциальности</a></li>
+                    <li>Режим работы: ежедневно 09:00–21:00</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full mx-4 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Получить расчёт</h3>
+            <p class="text-gray-600 mb-6">Оставьте телефон — перезвоним в течение часа</p>
+            <form onsubmit="handleModalSubmit(event)">
+                <div class="space-y-4">
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Ваше имя</label><input type="text" id="modalName" placeholder="Иван" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Телефон *</label><input type="tel" id="modalPhone" placeholder="+7 (___) ___-__-__" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white py-4 rounded-xl font-semibold transition">Получить расчёт</button>
+                </div>
+                <p class="text-xs text-gray-500 mt-4 text-center">Отправляя форму, вы соглашаетесь с <a href="privacy-policy.html" class="underline">политикой конфиденциальности</a>.</p>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-sm w-full mx-4 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-check text-green-500 text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Заявка отправлена!</h3>
+            <p class="text-gray-600 mb-4">Мы перезвоним вам в течение часа</p>
+            <button onclick="closeSuccessModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2 rounded-lg transition">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        function openModal() {
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.getElementById('modal').classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+        document.getElementById('successModal').addEventListener('click', function (e) {
+            if (e.target === this) closeSuccessModal();
+        });
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const phone = document.getElementById('ctaPhone').value;
+            if (phone) {
+                document.getElementById('ctaPhone').value = '';
+                showSuccess();
+            }
+        }
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            const phone = document.getElementById('modalPhone').value;
+            if (phone) {
+                closeModal();
+                document.getElementById('modalPhone').value = '';
+                document.getElementById('modalName').value = '';
+                showSuccess();
+            }
+        }
+        function showSuccess() {
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.fa-chevron-down');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value[0] === '7' || value[0] === '8') value = value.substring(1);
+                    let formatted = '+7';
+                    if (value.length > 0) formatted += ' (' + value.substring(0, 3);
+                    if (value.length >= 3) formatted += ') ' + value.substring(3, 6);
+                    if (value.length >= 6) formatted += '-' + value.substring(6, 8);
+                    if (value.length >= 8) formatted += '-' + value.substring(8, 10);
+                    e.target.value = formatted;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
